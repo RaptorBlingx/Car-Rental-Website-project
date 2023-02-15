@@ -36,7 +36,7 @@ const CarItem = ({car}) => {
           </button>
 
           <button className=" w-50 car__item-btn car__btn-details">
-            <Link to={`/cars/${carName}`}>Details</Link>
+            <Link to={`/cars/${_id}`}>Details</Link>
           </button>
         </div>
       </div>
