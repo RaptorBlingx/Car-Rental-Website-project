@@ -1,11 +1,15 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Container, Row, Col } from "reactstrap";
-import Helmet from "../components/Helmet/Helmet";
-import CommonSection from "../components/UI/CommonSection";
-import CarItem from "../components/UI/CarItem";
-import carData from "../assets/data/carData";
+import Helmet from "../Helmet/Helmet";
+import CommonSection from "../../shared/CommonSection";
+// import CarItem from "../UI/CarItem";
+import carData from "../../assets/data/cars";
 
 const CarListing = () => {
+  const [pageCount, setPageCount] = useState(0)
+  const [page, setPage] = useState(0)
+
+ 
   return (
     <Helmet title="Cars">
       <CommonSection title="Car Listing" />
@@ -30,6 +34,17 @@ const CarListing = () => {
             {carData.map((item) => (
               <CarItem item={item} key={item.id} />
             ))}
+
+            <Col lg="12">
+              <div className="pagination d-flex align-items-center
+              justify-content-center mt-4 gap-3">
+                {[...Array(pageCount).keys()].map(number => (
+                  <span key={number} onClick={number}>
+                    {number + 1}
+                  </span>
+                ))}
+              </div>
+            </Col>
           </Row>
         </Container>
       </section>

@@ -11,8 +11,8 @@ import commentImg from "../assets/all-images/ava-1.jpg";
 import "../styles/blog-details.css";
 
 const BlogDetails = () => {
-  const { slug } = useParams();
-  const blog = blogData.find((blog) => blog.title === slug);
+  const { id } = useParams();
+  const blog = blogData.find((blog) => blog.title === id);
 
   useEffect(() => {
     window.scrollTo(0, 0);

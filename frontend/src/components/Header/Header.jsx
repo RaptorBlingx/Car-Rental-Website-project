@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
-
-import { Container, Row, Col } from "reactstrap";
-import { Link, NavLink } from "react-router-dom";
+import React, { useRef,useEffect,useContext } from "react";
+import { Container, Row, Col, Button } from "reactstrap";
+import { Link, NavLink,useNavigate } from "react-router-dom";
 import "../../styles/header.css";
 
+import {AuthContext} from './../../context/AuthContext'
 const navLinks = [
   {
     path: "/home",
@@ -30,6 +30,13 @@ const navLinks = [
 
 const Header = () => {
   const menuRef = useRef(null);
+  const navigate = useNavigate()
+  const {user, dispatch} = useContext(AuthContext)
+
+  const logout = () => {
+    dispatch({type: 'LOGOUT'})
+    navigate('/')
+  }
 
   const toggleMenu = () => menuRef.current.classList.toggle("menu__active");
 
@@ -50,7 +57,15 @@ const Header = () => {
 
             <Col lg="6" md="6" sm="6">
               <div className="header__top__right d-flex align-items-center justify-content-end gap-3">
-                <button className="btn secondary_btn">
+                
+                { user? ( 
+                  <>
+                  <h5  className="btn-light">{user.username}</h5>
+                  <Button className="btn btn-dark" onClick={logout}>Logout</Button>
+                  </> 
+                  ) : ( 
+                  <>
+                  <button className="btn secondary_btn">
                   <Link to='/login' className=" d-flex align-items-center gap-1">
                   <i class="ri-login-circle-line"></i> Login </Link></button>
 
@@ -59,6 +74,10 @@ const Header = () => {
                     <i class="ri-user-line"></i>Register
                   </Link>
                 </button>
+                  
+                  </> 
+                  )}
+                
 
 
 
@@ -91,8 +110,8 @@ const Header = () => {
                   <i class="ri-earth-line"></i>
                 </span>
                 <div className="header__location-content">
-                  <h4>Bangladesh</h4>
-                  <h6>Sylhet City, Bangladesh</h6>
+                  <h4>Turkey</h4>
+                  <h6>Toros University, Turkey</h6>
                 </div>
               </div>
             </Col>

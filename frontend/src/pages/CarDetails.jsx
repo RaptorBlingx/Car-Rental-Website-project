@@ -1,47 +1,72 @@
-import React, { useState, useEffect } from "react";
-
-import carData from "../assets/data/carData";
-import { Container, Row, Col } from "reactstrap";
+import React, { useState, useEffect, useContext, useRef } from "react";
+import carData from "../assets/data/cars";
+import { Container, Row, Col,form,ListGroup } from "reactstrap";
 import Helmet from "../components/Helmet/Helmet";
 import { useParams } from "react-router-dom";
-import BookingForm from "../components/UI/BookingForm";
+import BookingForm from "../components/Booking/BookingForm";
 import PaymentMethod from "../components/UI/PaymentMethod";
+import useFetch from "../hooks/useFetch";
+import { BASE_URL } from "../utils/config";
+import { AuthContext } from "../context/AuthContext";
 
 const CarDetails = () => {
-  const { slug } = useParams();
 
-  const singleCarItem = carData.find((item) => item.carName === slug);
+  const { id } = useParams();
+  const {user} = useContext(AuthContext)
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [singleCarItem]);
 
-// const Cars = () => {
-//   const [pageCount, setPageCount] = useState(0)
-//   const [page, setPage] = useState(0)
+ // fetch data from db
+  const {data: car, loading, error} = useFetch(`${BASE_URL}/cars/${id}`);
 
-//   useEffect(() => {
+  // const singleCarItem = carData.find((item) => item.carName === id);
 
-//     const pages = Math.ceil(5/8);
-//     setPageCount(pages);
-//   },[page]);
+  const  { brand, city, 
+    pickUpDate, dropOffDate, 
+    rating, carName, imgUrl,
+    model, price,  speed, gps, 
+    seatType, automatic, carQuantity,
+    availability, featured,  description}
+   = car ;
+
   
+  // format date
+const options = { day: "numeric", month: "long", year: "numeric"};
+
+//submit request to the srver
+  const submitHandler = e => {
+    e.preventDefault();
+
+    // if(!user || user === undefined || user === null){
+    //   alert("please sign in")
+    // }
+  }
+  
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[car])
   return (
-    <Helmet title={singleCarItem.carName}>
+    <Helmet title={carName}>
       <section>
-        <Container>
-          <Row>
+        <Container> 
+          {
+            loading && <h4 className="text-center pt-5">Loading....</h4>
+          }
+          {
+            error && <h4 className="text-center pt-5">{error}</h4>
+          }
+          {
+            !loading && !error  &&  (<Row>
             <Col lg="6">
-              <img src={singleCarItem.imgUrl} alt="" className="w-100" />
+              <img src={`/cars/${imgUrl}`} alt="" className="w-100" />
             </Col>
 
             <Col lg="6">
               <div className="car__info">
-                <h2 className="section__title">{singleCarItem.carName}</h2>
+                <h2 className="section__title">{carName}</h2>
 
                 <div className=" d-flex align-items-center gap-5 mb-4 mt-3">
                   <h6 className="rent__price fw-bold fs-4">
-                    ${singleCarItem.price}.00 / Day
+                    ${price}.00 / Day
                   </h6>
 
                   <span className=" d-flex align-items-center gap-2">
@@ -52,12 +77,12 @@ const CarDetails = () => {
                       <i class="ri-star-s-fill"></i>
                       <i class="ri-star-s-fill"></i>
                     </span>
-                    ({singleCarItem.rating} ratings)
+                    ({rating} ratings)
                   </span>
                 </div>
 
                 <p className="section__description">
-                  {singleCarItem.description}
+                  {description}
                 </p>
 
                 <div
@@ -69,7 +94,7 @@ const CarDetails = () => {
                       class="ri-roadster-line"
                       style={{ color: "#f9a826" }}
                     ></i>{" "}
-                    {singleCarItem.model}
+                    {model}
                   </span>
 
                   <span className=" d-flex align-items-center gap-1 section__description">
@@ -77,7 +102,7 @@ const CarDetails = () => {
                       class="ri-settings-2-line"
                       style={{ color: "#f9a826" }}
                     ></i>{" "}
-                    {singleCarItem.automatic}
+                    {automatic}
                   </span>
 
                   <span className=" d-flex align-items-center gap-1 section__description">
@@ -85,7 +110,7 @@ const CarDetails = () => {
                       class="ri-timer-flash-line"
                       style={{ color: "#f9a826" }}
                     ></i>{" "}
-                    {singleCarItem.speed}
+                    {speed}
                   </span>
                 </div>
 
@@ -95,7 +120,7 @@ const CarDetails = () => {
                 >
                   <span className=" d-flex align-items-center gap-1 section__description">
                     <i class="ri-map-pin-line" style={{ color: "#f9a826" }}></i>{" "}
-                    {singleCarItem.gps}
+                    {gps}
                   </span>
 
                   <span className=" d-flex align-items-center gap-1 section__description">
@@ -103,7 +128,7 @@ const CarDetails = () => {
                       class="ri-wheelchair-line"
                       style={{ color: "#f9a826" }}
                     ></i>{" "}
-                    {singleCarItem.seatType}
+                    {seatType}
                   </span>
 
                   <span className=" d-flex align-items-center gap-1 section__description">
@@ -111,7 +136,7 @@ const CarDetails = () => {
                       class="ri-building-2-line"
                       style={{ color: "#f9a826" }}
                     ></i>{" "}
-                    {singleCarItem.brand}
+                    {brand}
                   </span>
                 </div>
               </div>
@@ -120,7 +145,7 @@ const CarDetails = () => {
             <Col lg="7" className="mt-5">
               <div className="booking-info mt-5">
                 <h5 className="mb-4 fw-bold ">Booking Information</h5>
-                <BookingForm />
+                <BookingForm car={car}/>
               </div>
             </Col>
 
@@ -130,9 +155,11 @@ const CarDetails = () => {
                 <PaymentMethod />
               </div>
             </Col>
-          </Row>
+          </Row> )
+          }
         </Container>
       </section>
+      
     </Helmet>
   );
 };

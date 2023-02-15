@@ -10,8 +10,11 @@ import img08 from "../all-images/cars-img/mercedes-offer.png";
 
 const carData = [
   {
-    id: 1,
+   
     brand: "Tesla",
+    city: "New York",
+    pickUpDate: "2023-03-10",
+    dropOffDate: "2023-03-15",
     rating: 112,
     carName: "Tesla Malibu",
     imgUrl: img01,
@@ -21,13 +24,18 @@ const carData = [
     gps: "GPS Navigation",
     seatType: "Heated seats",
     automatic: "Automatic",
+    carQuantity: 5,
+    featured: true,
     description:
-      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam.",
+      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor."
   },
 
   {
-    id: 2,
+   
     brand: "Toyota",
+    city: "Los Angeles",
+    pickUpDate: "2023-04-01",
+    dropOffDate: "2023-04-06",
     rating: 102,
     carName: "Toyota Aventador",
     imgUrl: img02,
@@ -37,13 +45,18 @@ const carData = [
     gps: "GPS Navigation",
     seatType: "Heated seats",
     automatic: "Automatic",
+    carQuantity: 5,
+    featured: true,
     description:
-      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam.",
+      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor."
   },
 
   {
-    id: 3,
+   
     brand: "BMW",
+    city: "Miami",
+    pickUpDate: "2023-05-15",
+    dropOffDate: "2023-05-20",
     rating: 132,
     carName: "BMW X3",
     imgUrl: img03,
@@ -53,29 +66,39 @@ const carData = [
     gps: "GPS Navigation",
     seatType: "Heated seats",
     automatic: "Automatic",
+    carQuantity: 5,
+    featured: true,
     description:
-      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam.",
+      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor."
   },
 
   {
-    id: 4,
+   
     brand: "Nissan",
+    city: "San Francisco",
+    pickUpDate: "2023-06-01",
+    dropOffDate: "2023-06-05",
     rating: 102,
     carName: "Nissan Mercielago",
-    imgUrl: img04,
+    imgUrl:img04,
     model: "Model-2022",
     price: 70,
     speed: "20kmpl",
     gps: "GPS Navigation",
     seatType: "Heated seats",
     automatic: "Automatic",
+    carQuantity: 5,
+    featured: true,
     description:
-      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam.",
+      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor."
   },
 
   {
-    id: 5,
+   
     brand: "Ferrari",
+    city: "Chicago",
+    pickUpDate: "2023-07-15",
+    dropOffDate: "2023-07-20",
     rating: 94,
     carName: "Ferrari Camry",
     imgUrl: img05,
@@ -85,29 +108,39 @@ const carData = [
     gps: "GPS Navigation",
     seatType: "Heated seats",
     automatic: "Automatic",
+    carQuantity: 5,
+    featured: true,
     description:
-      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam.",
+      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor."
   },
 
   {
-    id: 6,
+   
     brand: "Mercedes",
+    city: "Houston",
+    pickUpDate: "2023-08-01",
+    dropOffDate: "2023-08-05",
     rating: 119,
     carName: "Mercedes Benz XC90",
-    imgUrl: img06,
+    imgUrl:img06,
     model: "Model-2022",
     price: 85,
     speed: "20kmpl",
     gps: "GPS Navigation",
     seatType: "Heated seats",
     automatic: "Automatic",
+    carQuantity: 5,
+    featured: true,
     description:
-      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam.",
+      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor."
   },
 
   {
-    id: 7,
+   
     brand: "Audi",
+    city: "Phoenix",
+    pickUpDate: "2023-09-15",
+    dropOffDate: "2023-09-20",
     rating: 82,
     carName: "Audi Fiesta",
     imgUrl: img07,
@@ -117,24 +150,31 @@ const carData = [
     gps: "GPS Navigation",
     seatType: "Heated seats",
     automatic: "Automatic",
+    carQuantity: 5,
+    featured: true,
     description:
-      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam.",
+      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor."
   },
 
   {
-    id: 8,
+   
     brand: "Colorado",
+    city: "Philadelphia",
+    pickUpDate: "2023-10-01",
+    dropOffDate: "2023-10-05",
     rating: 52,
     carName: "Rolls Royce Colorado",
-    imgUrl: img08,
+    imgUrl:img08,
     model: "Model 3",
     price: 50,
     speed: "20kmpl",
     gps: "GPS Navigation",
     seatType: "Heated seats",
     automatic: "Automatic",
+    carQuantity: 5,
+    featured: true,
     description:
-      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam. Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor. At diam.",
+      " Dolor labore lorem no accusam sit justo sadipscing labore invidunt voluptua, amet duo et gubergren vero gubergren dolor."
   },
 ];
 

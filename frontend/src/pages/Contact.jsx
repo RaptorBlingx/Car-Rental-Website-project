@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col, Form, FormGroup, Input } from "reactstrap";
 import Helmet from "../components/Helmet/Helmet";
-import CommonSection from "../components/UI/CommonSection";
+import CommonSection from "../shared/CommonSection";
 
 import "../styles/contact.css";
 
@@ -60,7 +60,7 @@ const Contact = () => {
               <div className="contact__info">
                 <h6 className="fw-bold">Contact Information</h6>
                 <p className="section__description mb-0">
-                  123 ZindaBazar, Sylhet, Bangladesh
+                  123 ZindaBazar, Sylhet, Turkey
                 </p>
                 <div className=" d-flex align-items-center gap-2">
                   <h6 className="fs-6 mb-0">Phone:</h6>

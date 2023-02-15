@@ -1,15 +1,27 @@
 import mongoose from "mongoose";
 
-const rentSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-    required: true,
-    unique: true,
-  },
+const carSchema = new mongoose.Schema({
+  // id: {
+  //   type: Number,
+  //   required: true,
+  //   unique: true,
+  // },
   brand: {
     type: String,
     required: true,
   },
+  city: {
+    type: String,
+    required: true,
+  },
+  pickUpDate: {
+    type: Date,
+    required: true,
+},
+dropOffDate: {
+    type: Date,
+    required: true,
+},
   rating: {
     type: Number,
     required: true,
@@ -22,8 +34,16 @@ const rentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  speed: {
+  model:{
+    type: String,
+    required:true,
+  },
+  price:{
     type: Number,
+    required:true, 
+  },
+  speed: {
+    type: String,
     required: true,
   },
   gps: {
@@ -38,14 +58,30 @@ const rentSchema = new mongoose.Schema({
     type: String,
     default: false,
   },
+  
+  carQuantity:{
+    type: Number,
+    default: true,
+  },
+  availability:{
+    type: Boolean,
+    default:true,
+  },
+ 
+  
+  featured:{
+    type: Boolean,
+    default:false,
+  },
+  
   description: {
     type: String,
-    required: true,
+    required: false,
   },
 },
 {timestamps:true}
 );
 
-export default mongoose.model("Car", rentSchema);
+export default mongoose.model("Car", carSchema);
 
 

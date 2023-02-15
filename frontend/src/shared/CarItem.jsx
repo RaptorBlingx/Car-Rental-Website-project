@@ -1,13 +1,13 @@
 import React from "react";
 import { Col } from "reactstrap";
 import { Link } from "react-router-dom";
-import "../../styles/car-item.css";
+import "./car-item.css";
 
-const CarItem = (props) => {
-  const { imgUrl, model, carName, automatic, speed, price } = props.item;
-
+const CarItem = ({car}) => {
+  const { _id, imgUrl, model, carName, automatic, speed, price } = car;
+ 
   return (
-    <Col lg="4" md="4" sm="6" className="mb-5">
+    // <Col lg="4" md="4" sm="6" className="mb-5">
       <div className="car__item">
         <div className="car__img">
           <img src={imgUrl} alt="" className="w-100" />
@@ -32,7 +32,7 @@ const CarItem = (props) => {
           </div>
 
           <button className=" w-50 car__item-btn car__btn-rent">
-            <Link to={`/cars/${carName}`}>Rent</Link>
+            <Link to={`/cars/${_id}`}>Rent</Link>
           </button>
 
           <button className=" w-50 car__item-btn car__btn-details">
@@ -40,8 +40,9 @@ const CarItem = (props) => {
           </button>
         </div>
       </div>
-    </Col>
+    // </Col>
   );
 };
 
 export default CarItem;
+
