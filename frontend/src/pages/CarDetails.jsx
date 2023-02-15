@@ -57,7 +57,7 @@ const options = { day: "numeric", month: "long", year: "numeric"};
           {
             !loading && !error  &&  (<Row>
             <Col lg="6">
-              <img src={`/cars/${imgUrl}`} alt="" className="w-100" />
+              <img src={imgUrl} alt="" className="w-100" />
             </Col>
 
             <Col lg="6">
