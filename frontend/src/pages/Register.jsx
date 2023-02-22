@@ -71,7 +71,7 @@ import { BASE_URL } from "./../utils/config";
                                     <input type="text" 
                                     placeholder="Username" 
                                     required 
-                                    id="userame" 
+                                    id="username" 
                                     onChange={handleChange} />
                                 </FormGroup>
                                 <FormGroup>

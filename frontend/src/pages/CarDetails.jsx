@@ -46,7 +46,7 @@ const options = { day: "numeric", month: "long", year: "numeric"};
   },[car])
   return (
     <Helmet title={carName}>
-      <section>
+      {<section>
         <Container> 
           {
             loading && <h4 className="text-center pt-5">Loading....</h4>
@@ -158,7 +158,7 @@ const options = { day: "numeric", month: "long", year: "numeric"};
           </Row> )
           }
         </Container>
-      </section>
+      </section>}
       
     </Helmet>
   );

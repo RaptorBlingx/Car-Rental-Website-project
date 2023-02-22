@@ -28,7 +28,7 @@ const FindCarForm = () => {
 
     const result = await res.json()
 
-    navigate(`/cars/search?city=${location}&pickUpDate==${pickUpDate}&dropOffDate=${dropOffDate}`, { state: result.data })
+    navigate(`/cars/search?city=${location}&pickUpDate=${pickUpDate}&dropOffDate=${dropOffDate}`, { state: result.data })
   }
 
 
@@ -48,7 +48,8 @@ const FindCarForm = () => {
         <FormGroup
           className="form__group">
           <input type="date"
-            placeholder="Pick Up date"
+          name="pickUpDate"
+            placeholder="YYYY-MM-DD"
             // required 
             ref={pickUpDateRef}
           />
@@ -59,7 +60,8 @@ const FindCarForm = () => {
           <input
             className="time"
             type="date"
-            placeholder="Drop-off date"
+            name="dropOffDate"
+            placeholder="YYYY-MM-DD"
             // required
             ref={dropOffDateRef}
           />
@@ -74,6 +76,8 @@ const FindCarForm = () => {
         <FormGroup className="form__group">
           <button className="btn find__car-btn" type="submit" onClick={searchHandler}>Find Car</button>
         </FormGroup>
+
+        
       </div>
     </Form>
   );

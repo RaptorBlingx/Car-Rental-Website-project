@@ -126,16 +126,21 @@ export const getCarBySearch = async (req, res) => {
 
     const city = req.query.city;
     const pickupDate = new Date(req.query.pickupDate);
-    const dropoffDate = new Date(req.query.dropoffDate);
+    const dropOffDate = new Date(req.query.dropOffDate);
 
 
     try {
         const cars = await Car.find({
             city: city,
             pickupDate: { $gte: pickupDate },
-            dropoffDate: { $lte: dropoffDate }
+            dropOffDate: { $lte: dropOffDate },
         });
 
+        res.status(200).json({
+            success:true,
+            message:"Successful",
+            data:cars,
+        })
 
     } catch (err) {
         res.status(404).json({

@@ -2,6 +2,12 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
+    // loginAttempts: {
+    //   type: Number,
+    //   default: 0
+    // },
+    // lockUntil: Number,
+    
     username: {
       type: String,
       required: true,
@@ -16,6 +22,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    
     role: {
       type: String,
       default: "user",
