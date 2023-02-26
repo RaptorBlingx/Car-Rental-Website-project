@@ -30,6 +30,7 @@ router.get("/", getAllCar);
 
 //get car by search
 router.get("/search/getCarBySearch", getCarBySearch);
+
 router.get("/search/getFeaturedCars", getFeaturedCar)
 //
 router.get("/search/getCarCount", getCarCount);

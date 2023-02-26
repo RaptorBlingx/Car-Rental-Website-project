@@ -123,34 +123,40 @@ export const getAllCar = async (req, res) => {
 // get car by search
 export const getCarBySearch = async (req, res) => {
 
-
-    const city = req.query.city;
-    const pickupDate = new Date(req.query.pickupDate);
+    const city = new RegExp(req.query.city, 'i');
+    const pickUpDate = new Date(req.query.pickUpDate);
     const dropOffDate = new Date(req.query.dropOffDate);
 
 
-    try {
-        const cars = await Car.find({
-            city: city,
-            pickupDate: { $gte: pickupDate },
-            dropOffDate: { $lte: dropOffDate },
-        });
-
-        res.status(200).json({
-            success:true,
-            message:"Successful",
-            data:cars,
-        })
-
-    } catch (err) {
-        res.status(404).json({
-            success: false,
-            message: "not found",
-
-        });
+    if (isNaN(pickUpDate.getTime())) {
+        return res.status(400).json({ success: false, message: "Invalid pickUpDate" });
     }
 
+    if (isNaN(dropOffDate.getTime())) {
+        return res.status(400).json({ success: false, message: "Invalid dropOffDate" });
+    }
+
+    try {
+  const cars = await Car.find({
+    location: city,
+    pickup_date: { $gte: pickUpDate },
+    dropoff_date: { $lte: dropOffDate },
+  });
+
+  res.status(200).json({
+    success: true,
+    message: "Successful",
+    data: cars,
+  })
+
+} catch (err) {
+  res.status(404).json({
+    success: false,
+    message: "not found",
+  });
 }
+}
+
 
 // get car counts
 export const getCarCount = async (req, res) => {
@@ -169,7 +175,7 @@ export const getFeaturedCar = async (req, res) => {
 
     try {
 
-        const cars = await Car.find({featured:true}).limit(8);
+        const cars = await Car.find({ featured: true }).limit(8);
 
         res.status(200).json({
             success: true,
