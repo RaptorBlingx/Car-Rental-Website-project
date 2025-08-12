@@ -19,12 +19,6 @@ A full walkthrough and explanation of the project is available on YouTube. Click
 
 ---
 
-## 🖼️ Screenshots
-
-*(Placeholder: Add screenshots or GIFs of the application here to showcase the UI. For example: Home Page, Car Listings, Booking Page, Admin Dashboard.)*
-
----
-
 ## 🛠️ Tech Stack
 
 This project is built with the MERN stack and other modern technologies.
